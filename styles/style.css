@@ -1,3 +1,32 @@
+.centerDiv {
+    width:500px;
+    margin: 0 auto;
+}
+
+.gridContainer {
+    background: white;
+    margin: 0 auto;
+    border: 10px solid #4d88ff;
+    display: grid;
+    grid-template-columns: repeat(16, auto);
+    height: 500px;
+    width: 500px;
+}
+
+
+.sketchAlter {
+    padding: 1rem;
+    font-size: 1rem;
+    margin-bottom: 10px;
+
+}
+
+
 body {
-    background: red;
+    background: rgb(78, 78, 78);
+}
+
+.sketchButtons {
+    margin-top: 40px;
+    text-align: center;
 }

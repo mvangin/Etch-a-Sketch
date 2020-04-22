@@ -1,12 +1,81 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Etch-A-Sketch</title>
-        <link href="styles/style.css" rel="stylesheet"> 
-    </head>
-    <body>
-        <div class="container">
+
+<head>
+    <title> Etch-A-Sketch</title>
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="centerDiv">
+
+        <div class="sketchButtons">
+
+            <button class="newSketch sketchAlter"> Reset </button> 
+            <button class="newGridDimensions sketchAlter"> Grid Dimensions </button>
 
         </div>
-    </body>
+
+        <div class="gridContainer">
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const gridContainer = document.querySelector(".gridContainer");
+
+
+
+    function dimensions(dimension) {
+        let gridFull = dimension * dimension
+        for (let i = 0; i < gridFull; i++) {
+
+            const gridDiv = document.createElement('div');
+            gridDiv.classList.add("gridDiv");
+
+            gridDiv.addEventListener('mouseover', () => {
+                gridDiv.style.background = "black";
+            })
+
+            gridContainer.appendChild(gridDiv);
+        }
+    }
+
+
+
+    const newGridDimensions = document.querySelector(".newGridDimensions");
+
+    newGridDimensions.addEventListener("click", () => {
+        let dimensionInput = prompt(`Please enter new grid dimensions (eg. "16" = 16x16 new grid), 16`);
+
+        gridContainer.innerHTML = "";
+        gridContainer.style.cssText = `grid-template-columns: repeat(${dimensionInput}, auto)`;
+        dimensions(dimensionInput);
+    })
+
+
+    const newSketch = document.querySelector(".newSketch");
+
+    newSketch.addEventListener("click", () => {
+    let numberColsGrid = Math.sqrt(gridContainer.querySelectorAll('div').length);
+    gridContainer.innerHTML = "";
+    dimensions(numberColsGrid);
+
+    });
+
+    dimensions(16); 
+
+    //window.addEventListener('keydown', keyEffects); 
+    //press x to prevent dranwing press again to restart drawing
+    //function keyEffects(e) {
+        // if e.keyCode == "88" 
+    //}
+    
+
+    
+
+</script>
+
 </html>
