@@ -89,7 +89,7 @@
 
 
     function newGridPrompt() {
-        let dimensionInput = prompt(`Please enter new grid dimensions (eg. "16" = 16x16 new grid), 16`);
+        let dimensionInput = prompt(`Please enter new grid dimensions (eg. "16" = 16x16 new grid)`, 16);
         gridContainer.innerHTML = "";
         gridContainer.style.cssText = `grid-template-columns: repeat(${dimensionInput}, auto)`;
         return dimensionInput;
