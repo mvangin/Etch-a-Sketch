@@ -13,50 +13,57 @@
             <p>
                 ETCH A SKETCH
             </p>
-            
 
         </div>
 
         <div class="centerDiv">
 
             <div class="sketchButtons">
+
                 <span>
                     <button class="newGridDimensions sketchAlter"> Grid </button>
                     <input type="color" class="inputColor" value="#FFFFFF">
-                    <button class="newSketch sketchAlter"> Reset </button>
+                    <button class="resetSketch sketchAlter"> Reset </button>
 
                 </span>
-
-
 
             </div>
 
             <div class="gridContainer">
-                
+
             </div>
+
         </div>
 
         <div class="rightDiv">
             <p>
                 Choose your Color!
             </p>
-            
+
         </div>
 
     </div>
-<div class="author">
-    Project by Marcus Van Ginkel
-</div>
+    
+    <div class="author">
+        Project by Marcus Van Ginkel
+    </div>
 
 </body>
 
 <script>
     const gridContainer = document.querySelector(".gridContainer");
     const newGridDimensions = document.querySelector(".newGridDimensions");
-    const newSketch = document.querySelector(".newSketch");
+    const resetSketch = document.querySelector(".resetSketch");
     const inputColor = document.querySelector(".inputColor");
 
     dimensions(16);
+    let allDivs = gridContainer.querySelectorAll('div');
+    allDivs.forEach((div) => {
+        div.addEventListener('mouseover', () => {
+            div.style.background = "white";
+        })
+
+    })
 
 
     newGridDimensions.addEventListener("click", () => {
@@ -66,7 +73,18 @@
         let allDivs = gridContainer.querySelectorAll('div');
         allDivs.forEach((div) => {
             div.addEventListener('mouseover', () => {
-                div.style.background = "white";
+                div.style.background = inputColor.value;
+            })
+
+        })
+
+    });
+
+    inputColor.addEventListener("click", () => {
+        let allDivs = gridContainer.querySelectorAll('div');
+        allDivs.forEach((div) => {
+            div.addEventListener('mouseover', () => {
+                div.style.background = inputColor.value;
             })
 
         })
@@ -74,8 +92,7 @@
     });
 
 
-
-    newSketch.addEventListener("click", () => {
+    resetSketch.addEventListener("click", () => {
 
         let allDivs = gridContainer.querySelectorAll('div');
         allDivs.forEach((div) => {
@@ -83,9 +100,6 @@
         })
 
     })
-
-
-
 
 
     function newGridPrompt() {
@@ -108,30 +122,11 @@
     }
 
 
-
-    inputColor.addEventListener("click", () => {
-        let allDivs = gridContainer.querySelectorAll('div');
-        allDivs.forEach((div) => {
-            div.addEventListener('mouseover', () => {
-                div.style.background = inputColor.value;
-            })
-
-        })
-
-    });
-
-
-
-
-
     //window.addEventListener('keydown', keyEffects); 
     //press x to prevent dranwing press again to restart drawing
     //function keyEffects(e) {
         // if e.keyCode == "88" 
     //}
-
-
-
 
 </script>
 
