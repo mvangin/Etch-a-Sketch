@@ -55,8 +55,10 @@
     const newGridDimensions = document.querySelector(".newGridDimensions");
     const resetSketch = document.querySelector(".resetSketch");
     const inputColor = document.querySelector(".inputColor");
+    const allDivs = gridContainer.querySelectorAll('div');
 
     dimensions(16);
+
     let allDivs = gridContainer.querySelectorAll('div');
     allDivs.forEach((div) => {
         div.addEventListener('mouseover', () => {
@@ -70,7 +72,6 @@
         let dimension = newGridPrompt();
         dimensions(dimension);
 
-        let allDivs = gridContainer.querySelectorAll('div');
         allDivs.forEach((div) => {
             div.addEventListener('mouseover', () => {
                 div.style.background = inputColor.value;

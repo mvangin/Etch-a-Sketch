@@ -1,10 +1,7 @@
 .html {
     min-width: 600px;
 }
-.zcenterDiv {
-    width:500px;
-    margin: 0 auto;
-}
+
 
 .mainGrid {
     display: flex;
@@ -74,7 +71,8 @@ body {
 
 .author {
     padding: 5px;
-    width:100%;
+    margin: 0 auto;
+    width: 600px;
     text-align: center;
     color: rgb(230,230,230); 
 }
